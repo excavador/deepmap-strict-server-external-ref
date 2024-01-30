@@ -1,0 +1,38 @@
+---
+openapi: 3.0.3
+paths:
+  /example:
+    get:
+      operationId: Example
+      responses:
+        "200":
+          $ref: "#/components/responses/Example"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "default":
+          $ref: "a.yaml#/components/responses/Problem"
+components:
+  responses:
+    Example:
+      description: example of response
+      headers:
+        Etag:
+          $ref: "a.yaml#/components/headers/Etag"
+      content:
+        application/example+json:
+          schema:
+            $ref: "#/components/schemas/Example"
+    Conflict:
+      description: example of response
+      content:
+        application/problem+json:
+          schema:
+            $ref: "a.yaml#/components/schemas/Problem"
+  schemas:
+    Example:
+      type: object
+      properties:
+        id:
+          $ref: "a.yaml#/components/schemas/Id"
+        foo:
+          type: string

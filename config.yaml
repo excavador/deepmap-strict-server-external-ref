@@ -1,0 +1,13 @@
+compatibility:
+  always-prefix-enum-values: true
+  disable-required-readonly-as-pointer: true
+generate:
+  models: true
+  echo-server: true
+  strict-server: true
+  client: true
+output-options:
+  skip-prune: true
+import-mapping:
+  a.yaml: github.com/excavador/deepmap-strict-server-external-ref/a
+  b.yaml: github.com/excavador/deepmap-strict-server-external-ref/b
